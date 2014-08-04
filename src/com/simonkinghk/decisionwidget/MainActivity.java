@@ -1,8 +1,9 @@
 package com.simonkinghk.decisionwidget;
 
+import java.util.Random;
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -16,22 +17,17 @@ public class MainActivity extends ActionBarActivity  implements OnClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		Spinner spinSelect = (Spinner) findViewById(R.id.spn_totalSelector);
 		Button buttonClick = (Button) findViewById(R.id.selectRandom);
-	    spinSelect.setOnItemSelectedListener(this);
-	    buttonClick.setOnClickListener(this);
-	    
+		spinSelect.setOnItemSelectedListener(this);
+		buttonClick.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		((Button) v).setText(SharePreferenceInstance.getInstance(this).getPreference()+"");
-	}
-	
-	private int generateRandomNumber(){
-		
-		return 0;
+		String showedText = generateRandomNumber(SharePreferenceInstance.getInstance(this).getPreference()) + "";
+		((Button) v).setText(showedText);
 	}
 
 	@Override
@@ -45,5 +41,11 @@ public class MainActivity extends ActionBarActivity  implements OnClickListener,
 		// this will not be called
 	}
 
+	private int generateRandomNumber(int max) {
+		int min = 1;
+		Random rand = new Random();
+		int randomNum = rand.nextInt((max - min) + 1) + min;
+		return randomNum;
+	}
 
 }
