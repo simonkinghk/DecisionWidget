@@ -7,22 +7,36 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.simonkinghk.decisionwidget.MainActivity" >
+    
+    
+    <TextView
+        android:id="@+id/text_selectTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="27dp"
+        android:text="@string/action_menu_totalnumber"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
 
-    <SeekBar
-        android:id="@+id/selectItems"
+    <Spinner
+        android:id="@+id/spn_totalSelector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignLeft="@+id/selectRandom"
+        android:layout_below="@+id/text_selectTotal"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/sping_default" />
 
     <Button
         android:id="@+id/selectRandom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/selectItems"
+        android:layout_alignLeft="@+id/text_selectTotal"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/selectItems"
-        android:layout_below="@+id/selectItems"
-        android:text="Click to choose" />
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/spn_totalSelector"
+        android:layout_marginTop="14dp"
+        android:text="@string/action_menu_startrandom" />
 
 </RelativeLayout>

@@ -4,5 +4,12 @@
     <string name="app_name">Decision Widget</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="action_menu_totalnumber">Total Number: </string>
+    <string name="action_menu_startrandom">Click to Generate</string>
+    <string-array name="sping_default">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>
