@@ -22,14 +22,12 @@ public class AppWidgetMain extends AppWidgetProvider {
 	}
 
 	private void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
-		// TODO Auto-generated method stub
 		CharSequence text;
-		text = "my test";
+		text = SharePreferenceInstance.getInstance().generateRandomNumber(SharePreferenceInstance.getInstance().getPreference()) + "";
 
 		RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_main);
 		views.setTextViewText(R.id.HelloTextView01, text);
 
 		appWidgetManager.updateAppWidget(appWidgetId, views);
-
 	}
 }

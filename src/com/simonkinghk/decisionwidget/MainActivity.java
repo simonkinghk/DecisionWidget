@@ -1,7 +1,5 @@
 package com.simonkinghk.decisionwidget;
 
-import java.util.Random;
-
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -11,7 +9,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class MainActivity extends ActionBarActivity  implements OnClickListener, OnItemSelectedListener{
+public class MainActivity extends ActionBarActivity implements OnClickListener, OnItemSelectedListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,26 +24,18 @@ public class MainActivity extends ActionBarActivity  implements OnClickListener,
 
 	@Override
 	public void onClick(View v) {
-		String showedText = generateRandomNumber(SharePreferenceInstance.getInstance(this).getPreference()) + "";
+		String showedText = SharePreferenceInstance.getInstance().generateRandomNumber(SharePreferenceInstance.getInstance().getPreference())+ "";
 		((Button) v).setText(showedText);
 	}
 
 	@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position,
-			long id) {
-		SharePreferenceInstance.getInstance(this).setPreference((int)id+2);
+	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+		SharePreferenceInstance.getInstance().setPreference((int) id + 2);
 	}
 
 	@Override
 	public void onNothingSelected(AdapterView<?> parent) {
 		// this will not be called
-	}
-
-	private int generateRandomNumber(int max) {
-		int min = 1;
-		Random rand = new Random();
-		int randomNum = rand.nextInt((max - min) + 1) + min;
-		return randomNum;
 	}
 
 }

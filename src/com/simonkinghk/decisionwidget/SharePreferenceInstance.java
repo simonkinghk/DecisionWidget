@@ -1,24 +1,24 @@
 package com.simonkinghk.decisionwidget;
 
+import java.util.Random;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SharePreferenceInstance {
+public class SharePreferenceInstance{
 	private static SharePreferenceInstance shareInstance;
-	private Context context;
 	private SharedPreferences prefs;
 	private String defaultKey = "com.simonkinghk.decisionwidget.totalnum";
 	
-	public static SharePreferenceInstance getInstance(Context c){
+	public static SharePreferenceInstance getInstance(){
 		if (shareInstance == null) {
-			shareInstance = new SharePreferenceInstance(c);
+			shareInstance = new SharePreferenceInstance();
 		}
 		return shareInstance;
 	}
 	
-	public SharePreferenceInstance(Context c){
-		context = c;
-		prefs = context.getSharedPreferences("com.simonkinghk.decisionwidget", Context.MODE_PRIVATE);
+	public SharePreferenceInstance() {
+		prefs = MyApplication.getAppContext().getSharedPreferences("com.simonkinghk.decisionwidget", Context.MODE_PRIVATE);
 	}
 	
 	public int getPreference(){
@@ -28,4 +28,12 @@ public class SharePreferenceInstance {
 	public void setPreference(int value){
 		prefs.edit().putInt(defaultKey, value).apply();
 	}
+	
+	public int generateRandomNumber(int max) {
+		int min = 1;
+		Random rand = new Random();
+		int randomNum = rand.nextInt((max - min) + 1) + min;
+		return randomNum;
+	}
+
 }
