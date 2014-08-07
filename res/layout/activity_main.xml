@@ -37,6 +37,8 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/spn_totalSelector"
         android:layout_marginTop="14dp"
+        android:textSize="30sp"
+        android:background="@drawable/buttomstyle"
         android:text="@string/action_menu_startrandom" />
 
 </RelativeLayout>
