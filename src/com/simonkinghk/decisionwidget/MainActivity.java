@@ -20,6 +20,8 @@ public class MainActivity extends ActionBarActivity implements OnClickListener, 
 		Button buttonClick = (Button) findViewById(R.id.selectRandom);
 		spinSelect.setOnItemSelectedListener(this);
 		buttonClick.setOnClickListener(this);
+		
+		spinSelect.setSelection(SharePreferenceInstance.getInstance().getPreference()-2); // get user preference and set default value
 	}
 
 	@Override
