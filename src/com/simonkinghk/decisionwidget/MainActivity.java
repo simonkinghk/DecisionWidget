@@ -1,6 +1,7 @@
 package com.simonkinghk.decisionwidget;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,8 +27,16 @@ public class MainActivity extends ActionBarActivity implements OnClickListener, 
 
 	@Override
 	public void onClick(View v) {
-		String showedText = SharePreferenceInstance.getInstance().generateRandomNumber(SharePreferenceInstance.getInstance().getPreference())+ "";
-		((Button) v).setText(showedText);
+		final Button x = (Button) v;
+		x.setText("Generating..");
+		
+		// Delay to show generated number
+		Handler handlerTimer = new Handler();
+		handlerTimer.postDelayed(new Runnable(){
+			public void run() {
+				String showedText = SharePreferenceInstance.getInstance().generateRandomNumber(SharePreferenceInstance.getInstance().getPreference())+ "";
+				x.setText(showedText);          
+			}}, 1000);
 	}
 
 	@Override
@@ -39,5 +48,6 @@ public class MainActivity extends ActionBarActivity implements OnClickListener, 
 	public void onNothingSelected(AdapterView<?> parent) {
 		// this will not be called
 	}
+	
 
 }

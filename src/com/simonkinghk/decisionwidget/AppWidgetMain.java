@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.widget.RemoteViews;
 
 public class AppWidgetMain extends AppWidgetProvider {
@@ -44,11 +45,17 @@ public class AppWidgetMain extends AppWidgetProvider {
 		super.onReceive(context, intent);
 		if (intent.getAction().equals(WIDGET_ACTION)) {
 			//do widget action here
-			AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-			RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_main);
-			ComponentName watchWidget = new ComponentName(context, AppWidgetMain.class);
+			final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+			final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_main);
+			final ComponentName watchWidget = new ComponentName(context, AppWidgetMain.class);
 
-			remoteViews.setTextViewText(R.id.showButton, SharePreferenceInstance.getInstance().generateRandomNumber(SharePreferenceInstance.getInstance().getPreference()) + "");
+			Handler handlerTimer = new Handler();
+			handlerTimer.postDelayed(new Runnable(){
+				public void run() {
+					remoteViews.setTextViewText(R.id.showButton, SharePreferenceInstance.getInstance().generateRandomNumber(SharePreferenceInstance.getInstance().getPreference()) + "");
+					appWidgetManager.updateAppWidget(watchWidget, remoteViews);          
+				}}, 1000);
+			remoteViews.setTextViewText(R.id.showButton, "...");
 			appWidgetManager.updateAppWidget(watchWidget, remoteViews);
 		}
 	}
