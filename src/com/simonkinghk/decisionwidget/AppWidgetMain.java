@@ -55,7 +55,7 @@ public class AppWidgetMain extends AppWidgetProvider {
 					remoteViews.setTextViewText(R.id.showButton, SharePreferenceInstance.getInstance().generateRandomNumber(SharePreferenceInstance.getInstance().getPreference()) + "");
 					appWidgetManager.updateAppWidget(watchWidget, remoteViews);          
 				}}, 1000);
-			remoteViews.setTextViewText(R.id.showButton, "...");
+			remoteViews.setTextViewText(R.id.showButton, MyApplication.getAppContext().getResources().getString(R.string.generating_widget));
 			appWidgetManager.updateAppWidget(watchWidget, remoteViews);
 		}
 	}

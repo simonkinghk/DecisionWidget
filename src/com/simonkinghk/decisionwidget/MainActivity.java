@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements OnClickListener, OnItemSelectedListener {
 
@@ -28,7 +29,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener, 
 	@Override
 	public void onClick(View v) {
 		final Button x = (Button) v;
-		x.setText("Generating..");
+		x.setText(getResources().getString(R.string.generating));
 		
 		// Delay to show generated number
 		Handler handlerTimer = new Handler();
@@ -42,6 +43,8 @@ public class MainActivity extends ActionBarActivity implements OnClickListener, 
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 		SharePreferenceInstance.getInstance().setPreference((int) id + 2);
+		String showText = getResources().getString(R.string.toast_showsaved).replace("xx", id+2+"");
+		Toast.makeText(getApplicationContext(), showText, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
