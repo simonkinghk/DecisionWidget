@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.simonkinghk.decisionwidget"
-    android:versionCode="5"
+    android:versionCode="6"
     android:versionName="1.2" >
 
     <uses-sdk
@@ -32,6 +32,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.simonkinghk.decisionwidget.AppWidgetMain.WIDGET_ACTION"/>
             </intent-filter>
 
             <meta-data
