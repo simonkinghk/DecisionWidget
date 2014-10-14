@@ -14,17 +14,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="30dp"
         android:text="@string/action_menu_totalnumber"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     
-
     <Spinner
         android:id="@+id/spn_totalSelector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/selectRandom"
-        android:layout_below="@+id/text_selectTotal"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/text_selectTotal"
         android:drawSelectorOnTop="true"
         android:entries="@array/sping_default" />
 
@@ -36,8 +36,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/spn_totalSelector"
-        android:layout_marginTop="14dp"
-        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:textSize="40sp"
         android:background="@drawable/buttomstyle"
         android:text="@string/action_menu_startrandom" />
 
